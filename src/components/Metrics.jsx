@@ -49,9 +49,9 @@ const Metrics = () => {
            <div className="overflow-hidden">
               <motion.h2 
                 className="metrics-title"
-                initial={{ y: 100 }}
-                whileInView={{ y: 0 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "50px" }}
                 transition={{ duration: 0.6 }}
               >
                 CREATIVE SOLUTIONS
@@ -60,9 +60,9 @@ const Metrics = () => {
            <div className="overflow-hidden metrics-title-row">
               <motion.h2 
                 className="metrics-title"
-                initial={{ y: 100 }}
-                whileInView={{ y: 0 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "50px" }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
                 BUILT FOR
@@ -72,16 +72,16 @@ const Metrics = () => {
                 style={{ width: '120px' }}
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "50px" }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               />
            </div>
            <div className="overflow-hidden">
               <motion.h2 
                 className="metrics-title"
-                initial={{ y: 100 }}
-                whileInView={{ y: 0 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "50px" }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 REAL IMPACT
