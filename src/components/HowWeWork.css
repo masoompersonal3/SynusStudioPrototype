@@ -1,0 +1,255 @@
+.hww-section {
+  background-color: #0b0f19;
+  padding: 6rem 1.5rem 8rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.hww-container {
+  max-width: 1152px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hww-header {
+  position: relative;
+  z-index: 20;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hww-badge {
+  display: inline-block;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 999px;
+  padding: 0.4rem 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2rem;
+  background: rgba(255,255,255,0.05);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hww-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.hww-desc {
+  color: #9ca3af;
+  font-size: 1.1rem;
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+.hww-cards-area {
+  position: relative;
+  width: 100%;
+}
+
+.hww-svg-desktop {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1350px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hww-svg-mobile {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hww-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.hww-card {
+  width: 280px;
+  border-radius: 2rem;
+  padding: 0.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  background: #1e293b;
+}
+
+.hww-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+.hww-card.active {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  border-color: #ffffff;
+  box-shadow: 0 20px 50px rgba(255,255,255,0.15), inset 0 2px 0 rgba(255,255,255,0.8);
+}
+
+.hww-punch {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(to bottom right, #374151, #1f2937);
+  border-radius: 50%;
+  position: absolute;
+  top: 1rem;
+  border: 1px solid #4b5563;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.hww-card.active .hww-punch {
+  background: linear-gradient(to bottom right, #e5e7eb, #f3f4f6);
+  border: 1px solid #d1d5db;
+}
+
+.hww-punch::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #000;
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+.hww-card-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  margin-top: 2rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(0,0,0,0.3);
+}
+
+.hww-card.active .hww-card-inner {
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.hww-card-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.7s ease;
+  color: #4b5563;
+}
+
+.hww-card.active .hww-card-num {
+  color: #9ca3af;
+}
+
+.hww-card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  transition: all 0.7s ease;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.hww-card.active .hww-card-title {
+  color: #000000;
+}
+
+.hww-card-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  transition: all 0.7s ease;
+  color: #9ca3af;
+}
+
+.hww-card.active .hww-card-text {
+  color: #374151;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .hww-section {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  
+  .hww-header {
+    margin-bottom: 6rem;
+  }
+
+  .hww-cards-area {
+    height: 1500px;
+  }
+
+  .hww-svg-desktop {
+    display: block;
+    height: 1500px;
+  }
+
+  .hww-svg-mobile {
+    display: none;
+  }
+  
+  .hww-cards {
+    display: block;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  
+  .hww-card {
+    position: absolute;
+    width: 320px;
+  }
+  
+  .card-1 { top: 50px; right: 5%; transform: rotate(2deg); }
+  .card-2 { top: 400px; left: 5%; transform: rotate(-2deg); }
+  .card-3 { top: 750px; right: 5%; transform: rotate(1deg); }
+  .card-4 { top: 1100px; left: 15%; transform: rotate(-1deg); }
+  
+  .card-1:hover { transform: scale(1.02) rotate(2deg); }
+  .card-2:hover { transform: scale(1.02) rotate(-2deg); }
+  .card-3:hover { transform: scale(1.02) rotate(1deg); }
+  .card-4:hover { transform: scale(1.02) rotate(-1deg); }
+}
+
+@media (min-width: 1024px) {
+  .card-1 { right: 10%; transform: rotate(6deg); }
+  .card-2 { left: 10%; transform: rotate(-6deg); }
+  .card-3 { right: 15%; transform: rotate(3deg); }
+  .card-4 { left: 25%; transform: rotate(-3deg); }
+}

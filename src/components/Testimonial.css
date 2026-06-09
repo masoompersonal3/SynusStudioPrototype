@@ -1,0 +1,125 @@
+.testimonial-section {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 8rem 1.5rem;
+  position: relative;
+  z-index: 20;
+}
+
+.testimonial-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.testimonial-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.testimonial-badge {
+  border: 1px solid #e5e7eb;
+  padding: 0.25rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+}
+
+.testimonial-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: bold;
+  letter-spacing: -0.04em;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.testimonial-subtitle {
+  opacity: 0.75;
+  font-size: 1.125rem;
+}
+
+.testimonial-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  height: 740px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
+}
+
+.testimonial-column {
+  width: 100%;
+  max-width: 320px;
+}
+
+.testimonial-track {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.testimonial-card {
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid #f3f4f6;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #374151;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial-author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #111827;
+  line-height: 1.2;
+}
+
+.testimonial-role {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 768px) {
+  .hide-mobile { display: none; }
+}
+
+@media (max-width: 1024px) {
+  .hide-tablet { display: none; }
+}
