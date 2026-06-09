@@ -82,7 +82,7 @@ const Portfolio = () => {
     offset: ["end end", "end start"]
   });
 
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
   const borderBottomLeftRadius = useTransform(scrollYProgress, [0, 1], ["0px", "60px"]);
   const borderBottomRightRadius = useTransform(scrollYProgress, [0, 1], ["0px", "60px"]);
   const dynamicMarginBottom = useTransform(scrollYProgress, [0, 1], ["0vh", "-10vh"]);

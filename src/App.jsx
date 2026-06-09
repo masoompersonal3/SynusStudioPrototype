@@ -11,7 +11,15 @@ import { FooterTop, FooterBottom } from './components/Footer';
 import Loader from './components/Loader';
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => {
+    return !sessionStorage.getItem('hasSeenLoader');
+  });
+  
+  const handleLoaderComplete = () => {
+    sessionStorage.setItem('hasSeenLoader', 'true');
+    setLoading(false);
+  };
+  
   const heroRef = useRef(null);
   const footerRef = useRef(null);
   const [footerHeight, setFooterHeight] = useState(0);
@@ -47,7 +55,7 @@ function App() {
   return (
     <>
       <AnimatePresence>
-        {loading && <Loader onComplete={() => setLoading(false)} />}
+        {loading && <Loader onComplete={handleLoaderComplete} />}
       </AnimatePresence>
       
       {/* MAIN CONTENT WRAPPER */}
