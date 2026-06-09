@@ -91,11 +91,10 @@ const Portfolio = () => {
     <div style={{ background: 'linear-gradient(to bottom, #0b0f19 0%, #0b0f19 75%, #ffffff 75%, #ffffff 100%)' }}>
       <motion.section 
         ref={contentRef}
+        className="portfolio-section"
         style={{ 
           position: 'relative', 
           backgroundColor: '#0b0f19', 
-          paddingTop: '6rem',
-          paddingBottom: '8rem',
           marginBottom: dynamicMarginBottom,
           scale,
           borderBottomLeftRadius,
