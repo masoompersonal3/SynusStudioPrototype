@@ -131,15 +131,9 @@ export const FooterBottom = () => {
 
       {/* Giant Typography Name */}
       <div className="footer-giant-name-container">
-        <motion.h1 
-          className="footer-giant-name"
-          initial={{ opacity: 0, y: 100 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
-        >
+        <h1 className="footer-giant-name">
           SYNUSSTUDIO
-        </motion.h1>
+        </h1>
       </div>
     </div>
   );

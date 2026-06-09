@@ -42,10 +42,9 @@ const ContactMap = () => {
               <label className="form-label" htmlFor="f-budget">[04] Budget</label>
               <select className="form-field" id="f-budget" name="budget" required defaultValue="">
                 <option value="" disabled>— Choose —</option>
-                <option>Under €5k</option>
-                <option>€5—15k</option>
-                <option>€15—50k</option>
-                <option>€50k+</option>
+                <option value="10k-25k">₹10k — ₹25k</option>
+                <option value="25k-50k">₹25k — ₹50k</option>
+                <option value="50k+">₹50k+</option>
               </select>
               <span className="form-hint">Range</span>
             </div>
