@@ -132,7 +132,7 @@ export const FooterBottom = () => {
       {/* Giant Typography Name */}
       <div className="footer-giant-name-container">
         <h1 className="footer-giant-name">
-          SYNUSSTUDIO
+          SYNUS STUDIO
         </h1>
       </div>
     </div>

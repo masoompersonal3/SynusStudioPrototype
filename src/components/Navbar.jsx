@@ -42,7 +42,7 @@ const Navbar = ({ showNavLogo }) => {
           <AnimatedLink href="/#portfolio" label="Project" />
           <AnimatedLink href="/#about" label="About" />
           <AnimatedLink href="/#services" label="Service" />
-          <AnimatedLink href="/#careers" label="Career" />
+          <AnimatedLink href="/careers" label="Career" />
         </div>
         <div className="nav-actions">
           <button className="btn btn-contact-red" style={{ background: '#ff3300', color: '#fff', border: 'none', borderRadius: '50px', padding: '0.6rem 1.5rem', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
@@ -67,7 +67,7 @@ const Navbar = ({ showNavLogo }) => {
             <a href="/#portfolio" onClick={() => setIsMobileMenuOpen(false)}>Project</a>
             <a href="/#about" onClick={() => setIsMobileMenuOpen(false)}>About</a>
             <a href="/#services" onClick={() => setIsMobileMenuOpen(false)}>Service</a>
-            <a href="/#careers" onClick={() => setIsMobileMenuOpen(false)}>Career</a>
+            <Link to="/careers" onClick={() => setIsMobileMenuOpen(false)} style={{ textDecoration: 'none', color: 'inherit' }}>Career</Link>
             <button className="btn btn-contact-red" style={{ background: '#ff3300', color: '#fff', border: 'none', borderRadius: '50px', padding: '0.8rem', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontSize: '1rem', marginTop: '0.5rem', width: '100%', justifyContent: 'center' }} onClick={() => setIsMobileMenuOpen(false)}>
               Contact <ArrowRight size={18} />
             </button>

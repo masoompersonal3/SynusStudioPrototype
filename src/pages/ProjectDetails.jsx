@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MoveLeft } from 'lucide-react';
 import { FooterTop } from '../components/Footer';
@@ -15,11 +15,8 @@ const projectData = {
 
 const ProjectDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const project = projectData[id];
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [id]);
 
   if (!project) {
     return <div style={{ color: 'white', paddingTop: '20vh', textAlign: 'center', minHeight: '100vh' }}>Project Not Found</div>;
@@ -30,9 +27,12 @@ const ProjectDetails = () => {
       <div style={{ backgroundColor: '#0b0f19', color: '#fff', minHeight: '100vh', paddingTop: '150px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
           
-          <Link to="/" style={{ color: '#888', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '2rem' }}>
+          <div 
+            onClick={() => navigate(-1)} 
+            style={{ color: '#888', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '2rem', cursor: 'pointer' }}
+          >
             <MoveLeft size={20} /> Back to Projects
-          </Link>
+          </div>
 
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}

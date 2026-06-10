@@ -707,21 +707,21 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  overflow: hidden;
-  padding: 0 4vw;
+  overflow: visible; /* Prevent clipping */
+  padding: 0 2vw;
 }
 
 .footer-giant-name {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 20vw;
+  font-size: 16vw; /* Reduced slightly to perfectly fit SYNUS STUDIO without overflow */
   text-align: center;
   margin: 0;
-  line-height: 1;
+  line-height: 0.85; /* Ensures the top isn't cut off */
+  padding-bottom: 2vw; /* Ensures the bottom isn't cut off */
   letter-spacing: 0;
   position: relative;
   z-index: 1;
   font-weight: 700;
-  padding: 0;
   
   /* Fill from bottom on hover */
   background-image: linear-gradient(to top, #ffffff 0%, #ffffff 50%, transparent 50%, transparent 100%);
