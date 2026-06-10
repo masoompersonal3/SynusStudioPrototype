@@ -115,20 +115,18 @@ const Loader = ({ onComplete, onLogoFly }) => {
           )}
 
           {stage >= 3 && stage < 4 && (
-            <motion.div
+            <motion.svg 
+              layoutId="synus-logo-icon" 
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: logoScale }}
-              exit={{ opacity: 1 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="logo"
-              style={{ display: 'flex', justifyContent: 'center', padding: '0 2rem' }}
+              width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+              style={{ position: 'relative', zIndex: 10 }}
             >
-              <motion.svg layoutId="synus-logo-icon" width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="40" height="40" rx="12" fill="#ff3300" />
-                <path d="M19 13C16 13 14 14.5 14 17C14 20.5 20 19.5 20 23C20 25.5 18 27 15 27" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M27 13C24 13 22 14.5 22 17C22 20.5 28 19.5 28 23C28 25.5 26 27 23 27" stroke="#000" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
-              </motion.svg>
-            </motion.div>
+              <rect width="40" height="40" rx="12" fill="#ff3300" />
+              <path d="M19 13C16 13 14 14.5 14 17C14 20.5 20 19.5 20 23C20 25.5 18 27 15 27" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M27 13C24 13 22 14.5 22 17C22 20.5 28 19.5 28 23C28 25.5 26 27 23 27" stroke="#000" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+            </motion.svg>
           )}
         </AnimatePresence>
       </div>
