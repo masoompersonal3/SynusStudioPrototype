@@ -66,11 +66,11 @@ const PortfolioCard = ({ item }) => {
 };
 
 const portfolioItems = [
-  { id: 1, title: 'IPNPROXY', type: 'Website', img: '/assets/1.png', altStyle: false },
+  { id: 1, title: 'IPNPROXY', type: 'Website', img: '/assets/1.png', altStyle: true },
   { id: 2, title: 'BOOSTIFY', type: 'Website', img: '/assets/2.png', altStyle: true },
-  { id: 3, title: 'WAVEPROXIES', type: 'Website', img: '/assets/3.png', altStyle: false },
-  { id: 4, title: 'IPNVPN', type: 'Mobile App', img: '/assets/4.jpeg', altStyle: true },
-  { id: 5, title: 'BATIVIA', type: 'Website', img: '/assets/5.jpeg', altStyle: true },
+  { id: 3, title: 'WAVEPROXIES', type: 'Website', img: '/assets/3.png', altStyle: true },
+  { id: 4, title: 'IPNVPN', type: 'Mobile App', img: '/assets/4.jpeg', altStyle: false },
+  { id: 5, title: 'BATIVIA', type: 'Website', img: '/assets/5.jpeg', altStyle: false },
   { id: 6, title: 'BAEDECO', type: 'Website', img: '/assets/6.png', altStyle: false },
 ];
 
@@ -88,13 +88,13 @@ const Portfolio = () => {
   const dynamicMarginBottom = useTransform(scrollYProgress, [0, 1], ["0vh", "-10vh"]);
 
   return (
-    <div style={{ background: '#f5f5f5' }}>
+    <div style={{ background: 'linear-gradient(to bottom, #0b0f19 0%, #0b0f19 75%, #ffffff 75%, #ffffff 100%)' }}>
       <motion.section 
         ref={contentRef}
         className="portfolio-section"
         style={{ 
           position: 'relative', 
-          backgroundColor: '#f5f5f5', 
+          backgroundColor: '#0b0f19', 
           marginBottom: dynamicMarginBottom,
           scale,
           borderBottomLeftRadius,
