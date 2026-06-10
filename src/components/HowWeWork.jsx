@@ -68,12 +68,12 @@ const HowWeWork = () => {
 
         <div className="hww-cards-area">
           {/* Desktop SVG Animated Dashed Line */}
-        <svg className="hww-svg-desktop" viewBox="0 0 1000 1500" preserveAspectRatio="none">
-          <path d="M 650,200 C 400,300 200,550 300,750 C 400,950 750,900 700,1100 C 650,1300 400,1300 300,1350" fill="none" stroke="#4b5563" strokeWidth="3" strokeDasharray="8 10" />
+        <svg className="hww-svg-desktop" viewBox="0 0 1000 1800" preserveAspectRatio="none">
+          <path d="M 650,200 C 400,300 200,450 300,600 C 400,750 750,850 700,1000 C 650,1150 250,1250 300,1400" fill="none" stroke="#4b5563" strokeWidth="3" strokeDasharray="8 10" />
           <mask id="path-mask">
-            <motion.path d="M 650,200 C 400,300 200,550 300,750 C 400,950 750,900 700,1100 C 650,1300 400,1300 300,1350" fill="none" stroke="white" strokeWidth="20" style={{ pathLength }} />
+            <motion.path d="M 650,200 C 400,300 200,450 300,600 C 400,750 750,850 700,1000 C 650,1150 250,1250 300,1400" fill="none" stroke="white" strokeWidth="20" style={{ pathLength }} />
           </mask>
-          <path d="M 650,200 C 400,300 200,550 300,750 C 400,950 750,900 700,1100 C 650,1300 400,1300 300,1350" fill="none" stroke="#ffffff" strokeWidth="4" strokeDasharray="8 10" mask="url(#path-mask)" style={{ filter: 'drop-shadow(0px 0px 8px rgba(255,255,255,0.8))' }} />
+          <path d="M 650,200 C 400,300 200,450 300,600 C 400,750 750,850 700,1000 C 650,1150 250,1250 300,1400" fill="none" stroke="#ffffff" strokeWidth="4" strokeDasharray="8 10" mask="url(#path-mask)" style={{ filter: 'drop-shadow(0px 0px 8px rgba(255,255,255,0.8))' }} />
         </svg>
 
         {/* Mobile Animated Vertical Dashed Line */}

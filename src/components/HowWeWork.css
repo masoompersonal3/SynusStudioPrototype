@@ -215,12 +215,12 @@
   }
 
   .hww-cards-area {
-    height: 1500px;
+    height: 1800px;
   }
 
   .hww-svg-desktop {
     display: block;
-    height: 1500px;
+    height: 1800px;
   }
 
   .hww-svg-mobile {
@@ -240,9 +240,9 @@
   }
   
   .card-1 { top: 174px; left: calc(65% - 160px); transform: rotate(2deg); }
-  .card-2 { top: 724px; left: calc(30% - 160px); transform: rotate(-2deg); }
-  .card-3 { top: 1074px; left: calc(70% - 160px); transform: rotate(1deg); }
-  .card-4 { top: 1324px; left: calc(30% - 160px); transform: rotate(-1deg); }
+  .card-2 { top: 574px; left: calc(30% - 160px); transform: rotate(-2deg); }
+  .card-3 { top: 974px; left: calc(70% - 160px); transform: rotate(1deg); }
+  .card-4 { top: 1374px; left: calc(30% - 160px); transform: rotate(-1deg); }
   
   .card-1:hover { transform: scale(1.02) rotate(2deg); }
   .card-2:hover { transform: scale(1.02) rotate(-2deg); }
