@@ -132,22 +132,17 @@ function App() {
             {isMobileMenuOpen && (
               <motion.div 
                 className="mobile-nav-overlay"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
+                initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                transition={{ duration: 0.2 }}
               >
-                <div 
-                  style={{ position: 'absolute', top: '2rem', right: '2rem', cursor: 'pointer' }} 
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <X size={40} color="#000" />
-                </div>
                 <a href="#" onClick={() => setIsMobileMenuOpen(false)}>Project</a>
                 <a href="#" onClick={() => setIsMobileMenuOpen(false)}>About</a>
                 <a href="#services" onClick={() => setIsMobileMenuOpen(false)}>Service</a>
                 <a href="#careers" onClick={() => setIsMobileMenuOpen(false)}>Career</a>
-                <button className="btn btn-contact-red" style={{ background: '#ff3300', color: '#fff', border: 'none', borderRadius: '50px', padding: '0.8rem 2rem', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontSize: '1.2rem', marginTop: '1rem' }} onClick={() => setIsMobileMenuOpen(false)}>
-                  Contact <ArrowRight size={20} />
+                <button className="btn btn-contact-red" style={{ background: '#ff3300', color: '#fff', border: 'none', borderRadius: '50px', padding: '0.8rem', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontSize: '1rem', marginTop: '0.5rem', width: '100%', justifyContent: 'center' }} onClick={() => setIsMobileMenuOpen(false)}>
+                  Contact <ArrowRight size={18} />
                 </button>
               </motion.div>
             )}
