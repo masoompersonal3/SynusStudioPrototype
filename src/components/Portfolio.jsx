@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const CircularText = () => (
   <svg className="circular-text-svg" viewBox="0 0 100 100" width="100" height="100">
@@ -28,40 +29,42 @@ const PortfolioCard = ({ item }) => {
   };
 
   return (
-    <div 
-      className={`portfolio-grid-card ${item.altStyle ? 'alt-radius' : ''}`}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="portfolio-grid-shadow"></div>
-      <div className="portfolio-grid-content">
-        <div className="portfolio-card-info">
-          <h3>{item.title}</h3>
-          <span className="portfolio-card-badge">{item.type}</span>
-        </div>
-        <img src={item.img} alt={item.title} className="portfolio-card-img" />
-      </div>
-      
-      <motion.div 
-        className="circular-text-cursor"
-        animate={{ 
-          x: mousePos.x - 50, 
-          y: mousePos.y - 50, 
-          opacity: isHovered ? 1 : 0,
-          scale: isHovered ? 1 : 0.5
-        }}
-        transition={{ type: "tween", ease: "backOut", duration: 0.3 }}
-        style={{
-          position: 'absolute',
-          top: 0, left: 0,
-          pointerEvents: 'none',
-          zIndex: 30
-        }}
+    <Link to={`/project/${item.id}`} style={{ textDecoration: 'none' }}>
+      <div 
+        className={`portfolio-grid-card ${item.altStyle ? 'alt-radius' : ''}`}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
-        <CircularText />
-      </motion.div>
-    </div>
+        <div className="portfolio-grid-shadow"></div>
+        <div className="portfolio-grid-content">
+          <div className="portfolio-card-info">
+            <h3>{item.title}</h3>
+            <span className="portfolio-card-badge">{item.type}</span>
+          </div>
+          <img src={item.img} alt={item.title} className="portfolio-card-img" />
+        </div>
+        
+        <motion.div 
+          className="circular-text-cursor"
+          animate={{ 
+            x: mousePos.x - 50, 
+            y: mousePos.y - 50, 
+            opacity: isHovered ? 1 : 0,
+            scale: isHovered ? 1 : 0.5
+          }}
+          transition={{ type: "tween", ease: "backOut", duration: 0.3 }}
+          style={{
+            position: 'absolute',
+            top: 0, left: 0,
+            pointerEvents: 'none',
+            zIndex: 30
+          }}
+        >
+          <CircularText />
+        </motion.div>
+      </div>
+    </Link>
   );
 };
 
