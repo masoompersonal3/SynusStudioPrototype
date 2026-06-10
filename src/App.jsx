@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
-import { Routes, Route, useLocation, ScrollRestoration } from 'react-router-dom';
+import { Outlet, useLocation, ScrollRestoration } from 'react-router-dom';
 import Loader from './components/Loader';
 import Navbar from './components/Navbar';
 import { FooterBottom } from './components/Footer';
-import Home from './pages/Home';
-import ProjectDetails from './pages/ProjectDetails';
-import Careers from './pages/Careers';
 
 function App() {
   const location = useLocation();
@@ -56,11 +53,7 @@ function App() {
         {!location.pathname.startsWith('/project') && <Navbar showNavLogo={showNavLogo} />}
 
         <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<Home />} />
-            <Route path="/project/:id" element={<ProjectDetails />} />
-            <Route path="/careers" element={<Careers />} />
-          </Routes>
+          <Outlet key={location.pathname} />
         </AnimatePresence>
       </div>
 
