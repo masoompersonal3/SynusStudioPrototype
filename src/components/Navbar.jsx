@@ -67,7 +67,7 @@ const Navbar = ({ showNavLogo }) => {
             <a href="/#portfolio" onClick={() => setIsMobileMenuOpen(false)}>Project</a>
             <a href="/#about" onClick={() => setIsMobileMenuOpen(false)}>About</a>
             <a href="/#services" onClick={() => setIsMobileMenuOpen(false)}>Service</a>
-            <Link to="/careers" onClick={() => setIsMobileMenuOpen(false)} style={{ textDecoration: 'none', color: 'inherit' }}>Career</Link>
+            <Link to="/careers" onClick={() => setIsMobileMenuOpen(false)} style={{ textDecoration: 'none', color: '#000' }}>Career</Link>
             <button className="btn btn-contact-red" style={{ background: '#ff3300', color: '#fff', border: 'none', borderRadius: '50px', padding: '0.8rem', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontSize: '1rem', marginTop: '0.5rem', width: '100%', justifyContent: 'center' }} onClick={() => setIsMobileMenuOpen(false)}>
               Contact <ArrowRight size={18} />
             </button>
