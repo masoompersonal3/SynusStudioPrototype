@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, MoveRight, Users, Zap, Globe, MoveLeft } from 'lucide-react';
+import { Zap, Globe, Users, MoveLeft, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const positions = [
@@ -9,6 +9,237 @@ const positions = [
   { id: 3, title: 'Creative Art Director', type: 'Full-time', location: 'Remote / Global', dept: 'Creative' },
   { id: 4, title: 'Growth Marketing Manager', type: 'Full-time', location: 'Remote', dept: 'Marketing' }
 ];
+
+const CareerCard = ({ pos, index }) => {
+  const cardRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [rotation, setRotation] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    if (cardRef.current) {
+      const rect = cardRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      setMousePosition({ x, y });
+
+      const rotateX = -(y / rect.height) * 8; 
+      const rotateY = (x / rect.width) * 8; 
+      setRotation({ x: rotateX, y: rotateY });
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setRotation({ x: 0, y: 0 });
+  };
+
+  return (
+    <motion.div
+      ref={cardRef}
+      className="relative rounded-[32px] overflow-hidden"
+      style={{
+        width: "100%",
+        minHeight: "380px",
+        transformStyle: "preserve-3d",
+        backgroundColor: "#080a10",
+        boxShadow: "0 -10px 100px 10px rgba(212, 255, 58, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.8)",
+      }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ 
+        delay: index * 0.1, 
+        duration: 0.5,
+        type: "spring",
+        stiffness: 300,
+        damping: 20
+      }}
+      animate={{
+        y: isHovered ? -8 : 0,
+        rotateX: rotation.x,
+        rotateY: rotation.y,
+        perspective: 1000,
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={handleMouseLeave}
+      onMouseMove={handleMouseMove}
+    >
+      {/* Subtle glass reflection overlay */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 80%, rgba(255,255,255,0.05) 100%)",
+          backdropFilter: "blur(2px)",
+          zIndex: 35
+        }}
+        animate={{
+          opacity: isHovered ? 0.7 : 0.5,
+          rotateX: -rotation.x * 0.2,
+          rotateY: -rotation.y * 0.2,
+          z: 1,
+        }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+      />
+
+      {/* Dark background with black gradient */}
+      <motion.div
+        className="absolute inset-0"
+        style={{ background: "linear-gradient(180deg, #000000 0%, #000000 70%)", zIndex: 0 }}
+        animate={{ z: -1 }}
+      />
+
+      {/* Noise texture overlay */}
+      <motion.div
+        className="absolute inset-0 opacity-20 mix-blend-overlay"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          zIndex: 10
+        }}
+        animate={{ z: -0.5 }}
+      />
+
+      {/* Neon glow effect matching the website theme (Green & Red) */}
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 h-2/3"
+        style={{
+          background: `
+            radial-gradient(ellipse at bottom right, rgba(212, 255, 58, 0.6) -10%, rgba(0, 0, 0, 0) 70%),
+            radial-gradient(ellipse at bottom left, rgba(255, 51, 0, 0.5) -10%, rgba(0, 0, 0, 0) 70%)
+          `,
+          filter: "blur(40px)",
+          zIndex: 20
+        }}
+        animate={{
+          opacity: isHovered ? 0.9 : 0.6,
+          y: isHovered ? rotation.x * 0.5 : 0,
+          z: 0
+        }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+      />
+
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 h-2/3"
+        style={{
+          background: `radial-gradient(circle at bottom center, rgba(212, 255, 58, 0.4) -20%, rgba(0, 0, 0, 0) 60%)`,
+          filter: "blur(45px)",
+          zIndex: 21
+        }}
+        animate={{
+          opacity: isHovered ? 0.85 : 0.5,
+          y: isHovered ? `calc(10% + ${rotation.x * 0.3}px)` : "10%",
+          z: 0
+        }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+      />
+
+      {/* Enhanced bottom border glow */}
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 h-[2px]"
+        style={{ background: "linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(212,255,58,0.7) 50%, rgba(255,255,255,0.05) 100%)", zIndex: 25 }}
+        animate={{
+          boxShadow: isHovered
+            ? "0 0 20px 4px rgba(212, 255, 58, 0.7), 0 0 30px 6px rgba(255, 51, 0, 0.5)"
+            : "0 0 10px 2px rgba(212, 255, 58, 0.3), 0 0 15px 3px rgba(255, 51, 0, 0.2)",
+          opacity: isHovered ? 1 : 0.7,
+          z: 0.5
+        }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+      />
+
+      {/* Card content */}
+      <motion.div
+        className="relative flex flex-col h-full p-8"
+        style={{ zIndex: 40 }}
+        animate={{ z: 2 }}
+      >
+        <motion.div
+          className="mb-auto"
+          animate={{
+            z: isHovered ? 5 : 2,
+            rotateX: isHovered ? -rotation.x * 0.3 : 0,
+            rotateY: isHovered ? -rotation.y * 0.3 : 0
+          }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+        >
+          <div style={{ color: '#d4ff3a', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '1.5rem' }}>
+            {pos.dept}
+          </div>
+          <motion.h3
+            className="text-white"
+            style={{ fontSize: '2rem', fontWeight: 600, margin: '0 0 1.5rem 0', lineHeight: 1.2, letterSpacing: '-0.02em' }}
+            initial={{ filter: "blur(3px)", opacity: 0.7 }}
+            animate={{
+              textShadow: isHovered ? "0 2px 4px rgba(0,0,0,0.5)" : "none",
+              filter: "blur(0px)",
+              opacity: 1,
+              transition: { duration: 1.2, delay: 0.1 }
+            }}
+          >
+            {pos.title}
+          </motion.h3>
+
+          <motion.div
+            style={{ color: '#aaa', fontSize: '0.95rem', display: 'flex', flexDirection: 'column', gap: '0.8rem', lineHeight: 1.5 }}
+            initial={{ filter: "blur(3px)", opacity: 0.7 }}
+            animate={{
+              textShadow: isHovered ? "0 1px 2px rgba(0,0,0,0.5)" : "none",
+              filter: "blur(0px)",
+              opacity: 0.85,
+              transition: { duration: 1.2, delay: 0.2 }
+            }}
+          >
+            <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#ff3300' }}></div>
+              {pos.type}
+            </span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#d4ff3a' }}></div>
+              {pos.location}
+            </span>
+          </motion.div>
+        </motion.div>
+
+        {/* Apply Button / Arrow */}
+        <motion.div
+          style={{
+            marginTop: '2rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
+            color: '#fff',
+            fontWeight: 600,
+            fontSize: '0.9rem',
+            textTransform: 'uppercase',
+            letterSpacing: '1px',
+            cursor: 'pointer'
+          }}
+          initial={{ filter: "blur(3px)", opacity: 0.7 }}
+          animate={{
+            filter: "blur(0px)",
+            opacity: 0.9,
+            transition: { duration: 1.2, delay: 0.3 }
+          }}
+          whileHover={{ filter: "drop-shadow(0 0 8px rgba(212, 255, 58, 0.8))" }}
+        >
+          Apply Now
+          <motion.div
+            animate={{ x: isHovered ? 8 : 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            style={{ 
+              width: '40px', height: '40px', borderRadius: '50%', 
+              background: 'rgba(255,255,255,0.1)', 
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              border: '1px solid rgba(255,255,255,0.2)'
+            }}
+          >
+            <ArrowRight size={18} />
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  );
+};
 
 const Careers = () => {
   const heroRef = useRef(null);
@@ -88,45 +319,11 @@ const Careers = () => {
 
         {/* OPEN ROLES SECTION */}
         <section style={{ padding: '6rem 2rem 10rem 2rem', maxWidth: '1200px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontFamily: "'Bebas Neue', sans-serif", marginBottom: '3rem', textAlign: 'center' }}>OPEN POSITIONS</h2>
+          <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontFamily: "'Bebas Neue', sans-serif", marginBottom: '4rem', textAlign: 'center' }}>OPEN POSITIONS</h2>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem' }}>
             {positions.map((pos, i) => (
-              <motion.div 
-                key={pos.id}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.08)' }}
-                style={{ 
-                  display: 'flex', 
-                  flexDirection: 'column',
-                  alignItems: 'flex-start', 
-                  justifyContent: 'space-between', 
-                  padding: '2.5rem', 
-                  background: 'rgba(255,255,255,0.03)', 
-                  borderRadius: '24px', 
-                  border: '1px solid rgba(255,255,255,0.05)',
-                  cursor: 'pointer',
-                  minHeight: '220px',
-                  position: 'relative'
-                }}
-              >
-                <div>
-                  <div style={{ color: '#d4ff3a', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '1rem' }}>
-                    {pos.dept}
-                  </div>
-                  <h3 style={{ fontSize: '1.8rem', fontWeight: 600, margin: '0 0 1rem 0', lineHeight: 1.2 }}>{pos.title}</h3>
-                  <div style={{ color: '#888', fontSize: '0.9rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>• {pos.type}</span>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>• {pos.location}</span>
-                  </div>
-                </div>
-                <div style={{ position: 'absolute', bottom: '2rem', right: '2rem', width: '48px', height: '48px', borderRadius: '50%', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <MoveRight size={24} color="#000" />
-                </div>
-              </motion.div>
+              <CareerCard key={pos.id} pos={pos} index={i} />
             ))}
           </div>
         </section>
