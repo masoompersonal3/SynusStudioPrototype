@@ -45,7 +45,7 @@ const CareerCard = ({ pos, index }) => {
         minHeight: "400px",
         transformStyle: "preserve-3d",
         backgroundColor: "#080a10",
-        boxShadow: "0 -10px 100px 10px rgba(212, 255, 58, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.8)",
+        boxShadow: "inset 0 0 20px rgba(255, 255, 255, 0.192), inset 0 0 5px rgba(255, 255, 255, 0.274), 0 -10px 100px 10px rgba(212, 255, 58, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.8)",
       }}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
