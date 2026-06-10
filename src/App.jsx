@@ -9,6 +9,7 @@ import Services from './components/Services';
 import ContactMap from './components/ContactMap';
 import { FooterTop, FooterBottom } from './components/Footer';
 import Loader from './components/Loader';
+import AnimatedLink from './components/AnimatedLink';
 
 function App() {
   const [loading, setLoading] = useState(() => {
@@ -111,10 +112,10 @@ function App() {
             </motion.div>
             
             <div className="nav-links">
-              <a href="#" style={{ color: '#000', fontWeight: 500 }}>Project</a>
-              <a href="#" style={{ color: '#888' }}>About</a>
-              <a href="#" style={{ color: '#888' }}>Service</a>
-              <a href="#" style={{ color: '#888' }}>Career</a>
+              <AnimatedLink href="#" label="Project" />
+              <AnimatedLink href="#" label="About" />
+              <AnimatedLink href="#services" label="Service" />
+              <AnimatedLink href="#careers" label="Career" />
             </div>
             <div className="nav-actions">
               <button className="btn btn-contact-red" style={{ background: '#ff3300', color: '#fff', border: 'none', borderRadius: '50px', padding: '0.6rem 1.5rem', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
