@@ -86,12 +86,11 @@ function App() {
         <div className="hero-light-wrapper" style={{ backgroundColor: '#fafafa', backgroundImage: 'none' }}>
           <nav className={`navbar navbar-light ${isScrolled ? 'navbar-scrolled' : ''}`}>
             <motion.div 
-              layoutId="synus-logo-container"
               className="logo" 
               style={{ color: '#000', display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}
               whileHover="hover"
             >
-              <motion.svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <motion.svg layoutId="synus-logo-icon" width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <motion.rect 
                   width="40" height="40" rx="12" fill="#ff3300" 
                   variants={{

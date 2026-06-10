@@ -11,7 +11,7 @@ const Loader = ({ onComplete }) => {
     const timer4 = setTimeout(() => {
       setStage(4); // diagonal cut begins
       setTimeout(onComplete, 800); // wait for cut
-    }, 4500);
+    }, 8500);
 
     return () => {
       clearTimeout(timer1);
@@ -51,7 +51,7 @@ const Loader = ({ onComplete }) => {
           width: '100%',
           height: '100%',
           backgroundColor: '#050505',
-          clipPath: 'polygon(0 0, 100% 0, 0 100%)',
+          clipPath: 'polygon(0 0, 100.5% 0, 0 100.5%)',
           zIndex: 1,
           pointerEvents: 'auto'
         }}
@@ -69,7 +69,7 @@ const Loader = ({ onComplete }) => {
           width: '100%',
           height: '100%',
           backgroundColor: '#050505',
-          clipPath: 'polygon(100% 0, 100% 100%, 0 100%)',
+          clipPath: 'polygon(99.5% 0, 100% 100%, -0.5% 100%)',
           zIndex: 1,
           pointerEvents: 'auto'
         }}
@@ -112,20 +112,18 @@ const Loader = ({ onComplete }) => {
 
           {stage >= 3 && stage < 4 && (
             <motion.div
-              layoutId="synus-logo-container"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 4 }}
               exit={{ opacity: 1 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="logo"
-              style={{ color: '#fff', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+              style={{ display: 'flex', justifyContent: 'center' }}
             >
-              <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <motion.svg layoutId="synus-logo-icon" width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="40" height="40" rx="12" fill="#ff3300" />
                 <path d="M19 13C16 13 14 14.5 14 17C14 20.5 20 19.5 20 23C20 25.5 18 27 15 27" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M27 13C24 13 22 14.5 22 17C22 20.5 28 19.5 28 23C28 25.5 26 27 23 27" stroke="#000" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              <span className="logo-text" style={{ fontWeight: 600, fontSize: '1.2rem' }}>SynusStudio</span>
+              </motion.svg>
             </motion.div>
           )}
         </AnimatePresence>
