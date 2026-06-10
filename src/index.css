@@ -52,18 +52,25 @@ body {
   z-index: 100;
   position: fixed;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
+  max-width: 100%;
   background-color: #fafafa; /* Solid matching background */
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   border-bottom: 1px solid transparent;
+  border-radius: 0;
 }
 
 .navbar.navbar-scrolled {
-  padding: 1rem 4rem;
+  top: 1.5rem;
+  max-width: 1100px;
+  width: 90%;
+  padding: 1rem 3rem;
   background-color: #ffffff;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-radius: 50px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.05);
 }
 
 .logo {

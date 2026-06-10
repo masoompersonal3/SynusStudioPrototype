@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence, LayoutGroup } from 'framer-motion';
 import { ArrowRight, MoveDown, Menu, X } from 'lucide-react';
 import Metrics from './components/Metrics';
 import HowWeWork from './components/HowWeWork';
@@ -66,7 +66,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <LayoutGroup>
       <AnimatePresence>
         {loading && <Loader onComplete={handleLoaderComplete} />}
       </AnimatePresence>
@@ -86,6 +86,7 @@ function App() {
         <div className="hero-light-wrapper" style={{ backgroundColor: '#fafafa', backgroundImage: 'none' }}>
           <nav className={`navbar navbar-light ${isScrolled ? 'navbar-scrolled' : ''}`}>
             <motion.div 
+              layoutId="synus-logo-container"
               className="logo" 
               style={{ color: '#000', display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}
               whileHover="hover"
@@ -196,10 +197,6 @@ function App() {
                  muted 
                  playsInline
                />
-               
-               <div className="play-button-large">
-                  Play
-               </div>
             </motion.div>
 
           </main>
@@ -229,7 +226,7 @@ function App() {
       >
         <FooterBottom />
       </div>
-    </>
+    </LayoutGroup>
   );
 }
 
