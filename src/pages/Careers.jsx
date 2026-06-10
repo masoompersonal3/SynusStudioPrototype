@@ -90,7 +90,7 @@ const Careers = () => {
         <section style={{ padding: '6rem 2rem 10rem 2rem', maxWidth: '1200px', margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontFamily: "'Bebas Neue', sans-serif", marginBottom: '3rem', textAlign: 'center' }}>OPEN POSITIONS</h2>
           
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
             {positions.map((pos, i) => (
               <motion.div 
                 key={pos.id}
@@ -101,29 +101,29 @@ const Careers = () => {
                 whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.08)' }}
                 style={{ 
                   display: 'flex', 
-                  alignItems: 'center', 
+                  flexDirection: 'column',
+                  alignItems: 'flex-start', 
                   justifyContent: 'space-between', 
-                  padding: '2rem', 
+                  padding: '2.5rem', 
                   background: 'rgba(255,255,255,0.03)', 
-                  borderRadius: '20px', 
+                  borderRadius: '24px', 
                   border: '1px solid rgba(255,255,255,0.05)',
                   cursor: 'pointer',
-                  flexWrap: 'wrap',
-                  gap: '1rem'
+                  minHeight: '220px',
+                  position: 'relative'
                 }}
               >
                 <div>
-                  <div style={{ color: '#d4ff3a', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
+                  <div style={{ color: '#d4ff3a', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '1rem' }}>
                     {pos.dept}
                   </div>
-                  <h3 style={{ fontSize: '1.5rem', fontWeight: 600, margin: 0 }}>{pos.title}</h3>
-                  <div style={{ color: '#888', marginTop: '0.5rem', fontSize: '0.9rem', display: 'flex', gap: '1rem' }}>
-                    <span>{pos.type}</span>
-                    <span>•</span>
-                    <span>{pos.location}</span>
+                  <h3 style={{ fontSize: '1.8rem', fontWeight: 600, margin: '0 0 1rem 0', lineHeight: 1.2 }}>{pos.title}</h3>
+                  <div style={{ color: '#888', fontSize: '0.9rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>• {pos.type}</span>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>• {pos.location}</span>
                   </div>
                 </div>
-                <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ position: 'absolute', bottom: '2rem', right: '2rem', width: '48px', height: '48px', borderRadius: '50%', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <MoveRight size={24} color="#000" />
                 </div>
               </motion.div>
