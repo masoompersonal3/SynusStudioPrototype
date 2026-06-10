@@ -124,6 +124,8 @@
   border-radius: 50%;
   position: absolute;
   top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
   border: 1px solid #4b5563;
   z-index: 10;
   display: flex;
@@ -234,12 +236,13 @@
   .hww-card {
     position: absolute;
     width: 320px;
+    transform-origin: 50% 26px;
   }
   
-  .card-1 { top: 50px; right: 5%; transform: rotate(2deg); }
-  .card-2 { top: 400px; left: 5%; transform: rotate(-2deg); }
-  .card-3 { top: 750px; right: 5%; transform: rotate(1deg); }
-  .card-4 { top: 1100px; left: 15%; transform: rotate(-1deg); }
+  .card-1 { top: 174px; left: calc(65% - 160px); transform: rotate(2deg); }
+  .card-2 { top: 724px; left: calc(30% - 160px); transform: rotate(-2deg); }
+  .card-3 { top: 1074px; left: calc(70% - 160px); transform: rotate(1deg); }
+  .card-4 { top: 1324px; left: calc(30% - 160px); transform: rotate(-1deg); }
   
   .card-1:hover { transform: scale(1.02) rotate(2deg); }
   .card-2:hover { transform: scale(1.02) rotate(-2deg); }
@@ -248,8 +251,8 @@
 }
 
 @media (min-width: 1024px) {
-  .card-1 { right: 10%; transform: rotate(6deg); }
-  .card-2 { left: 10%; transform: rotate(-6deg); }
-  .card-3 { right: 15%; transform: rotate(3deg); }
-  .card-4 { left: 25%; transform: rotate(-3deg); }
+  .card-1 { transform: rotate(6deg); }
+  .card-2 { transform: rotate(-6deg); }
+  .card-3 { transform: rotate(3deg); }
+  .card-4 { transform: rotate(-3deg); }
 }

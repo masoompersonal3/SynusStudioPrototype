@@ -11,7 +11,7 @@ const Loader = ({ onComplete }) => {
     const timer4 = setTimeout(() => {
       setStage(4); // diagonal cut begins
       setTimeout(onComplete, 800); // wait for cut
-    }, 8500);
+    }, 5500);
 
     return () => {
       clearTimeout(timer1);
@@ -113,7 +113,7 @@ const Loader = ({ onComplete }) => {
           {stage >= 3 && stage < 4 && (
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 4 }}
+              animate={{ opacity: 1, scale: 12 }}
               exit={{ opacity: 1 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="logo"
