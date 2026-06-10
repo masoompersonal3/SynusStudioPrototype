@@ -361,28 +361,28 @@ const Careers = () => {
 
         {/* WHY JOIN US SECTION */}
         <section style={{ padding: '6rem 2rem', maxWidth: '1200px', margin: '0 auto', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
-              <div style={{ background: 'rgba(255,255,255,0.03)', padding: '2rem', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.05)', backdropFilter: 'blur(10px)' }}>
-                <Zap size={32} color="#d4ff3a" style={{ marginBottom: '1.5rem' }} />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'stretch' }}>
+            <motion.div style={{ height: '100%' }} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} whileHover={{ backgroundColor: 'rgba(173, 173, 173, 0.05)' }}>
+              <div style={{ background: 'rgba(255,255,255,0.03)', padding: '2rem', borderRadius: '15px', backdropFilter: 'blur(15px)', boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.192), inset 0 0 5px rgba(255, 255, 255, 0.274), 0 5px 5px rgba(0, 0, 0, 0.164)', height: '100%', display: 'flex', flexDirection: 'column', boxSizing: 'border-box', transition: '0.5s' }}>
+                <Zap size={32} color="#d4ff3a" style={{ marginBottom: '1.5rem', flexShrink: 0 }} />
                 <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', fontWeight: 600 }}>Impactful Work</h3>
-                <p style={{ color: '#aaa', lineHeight: 1.6 }}>We partner with global brands to build products that millions of people use every day. Your code and designs will matter.</p>
+                <p style={{ color: '#aaa', lineHeight: 1.6, margin: 0 }}>We partner with global brands to build products that millions of people use every day. Your code and designs will matter.</p>
               </div>
             </motion.div>
             
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
-              <div style={{ background: 'rgba(255,255,255,0.03)', padding: '2rem', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.05)', backdropFilter: 'blur(10px)' }}>
-                <Globe size={32} color="#d4ff3a" style={{ marginBottom: '1.5rem' }} />
+            <motion.div style={{ height: '100%' }} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} whileHover={{ backgroundColor: 'rgba(173, 173, 173, 0.05)' }}>
+              <div style={{ background: 'rgba(255,255,255,0.03)', padding: '2rem', borderRadius: '15px', backdropFilter: 'blur(15px)', boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.192), inset 0 0 5px rgba(255, 255, 255, 0.274), 0 5px 5px rgba(0, 0, 0, 0.164)', height: '100%', display: 'flex', flexDirection: 'column', boxSizing: 'border-box', transition: '0.5s' }}>
+                <Globe size={32} color="#d4ff3a" style={{ marginBottom: '1.5rem', flexShrink: 0 }} />
                 <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', fontWeight: 600 }}>Work Anywhere</h3>
-                <p style={{ color: '#aaa', lineHeight: 1.6 }}>We are a remote-first agency. Work from our beautiful Jakarta studio or from anywhere in the world.</p>
+                <p style={{ color: '#aaa', lineHeight: 1.6, margin: 0 }}>We are a remote-first agency. Work from our beautiful Jakarta studio or from anywhere in the world.</p>
               </div>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
-              <div style={{ background: 'rgba(255,255,255,0.03)', padding: '2rem', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.05)', backdropFilter: 'blur(10px)' }}>
-                <Users size={32} color="#d4ff3a" style={{ marginBottom: '1.5rem' }} />
+            <motion.div style={{ height: '100%' }} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} whileHover={{ backgroundColor: 'rgba(173, 173, 173, 0.05)' }}>
+              <div style={{ background: 'rgba(255,255,255,0.03)', padding: '2rem', borderRadius: '15px', backdropFilter: 'blur(15px)', boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.192), inset 0 0 5px rgba(255, 255, 255, 0.274), 0 5px 5px rgba(0, 0, 0, 0.164)', height: '100%', display: 'flex', flexDirection: 'column', boxSizing: 'border-box', transition: '0.5s' }}>
+                <Users size={32} color="#d4ff3a" style={{ marginBottom: '1.5rem', flexShrink: 0 }} />
                 <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', fontWeight: 600 }}>Elite Team</h3>
-                <p style={{ color: '#aaa', lineHeight: 1.6 }}>Surround yourself with top-tier talent. We foster a culture of constant learning, mentorship, and creative freedom.</p>
+                <p style={{ color: '#aaa', lineHeight: 1.6, margin: 0 }}>Surround yourself with top-tier talent. We foster a culture of constant learning, mentorship, and creative freedom.</p>
               </div>
             </motion.div>
           </div>
