@@ -12,12 +12,8 @@ import Loader from './components/Loader';
 import AnimatedLink from './components/AnimatedLink';
 
 function App() {
-  const [loading, setLoading] = useState(() => {
-    return !sessionStorage.getItem('hasSeenLoader');
-  });
-  const [showNavLogo, setShowNavLogo] = useState(() => {
-    return !!sessionStorage.getItem('hasSeenLoader');
-  });
+  const [loading, setLoading] = useState(true);
+  const [showNavLogo, setShowNavLogo] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   
   const handleLoaderComplete = () => {
