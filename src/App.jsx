@@ -14,12 +14,25 @@ function App() {
   const [loading, setLoading] = useState(() => {
     return !sessionStorage.getItem('hasSeenLoader');
   });
+  const [isScrolled, setIsScrolled] = useState(false);
   
   const handleLoaderComplete = () => {
     sessionStorage.setItem('hasSeenLoader', 'true');
     setLoading(false);
   };
   
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const heroRef = useRef(null);
   const footerRef = useRef(null);
   const [footerHeight, setFooterHeight] = useState(0);
@@ -71,7 +84,7 @@ function App() {
         }}
       >
         <div className="hero-light-wrapper" style={{ backgroundColor: '#fafafa', backgroundImage: 'none' }}>
-          <nav className="navbar navbar-light">
+          <nav className={`navbar navbar-light ${isScrolled ? 'navbar-scrolled' : ''}`}>
             <motion.div 
               className="logo" 
               style={{ color: '#000', display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}

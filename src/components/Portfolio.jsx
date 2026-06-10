@@ -66,12 +66,12 @@ const PortfolioCard = ({ item }) => {
 };
 
 const portfolioItems = [
-  { id: 1, title: 'IPNPROXY', type: 'Website', img: '/assets/portfolio.webp', altStyle: false },
-  { id: 2, title: 'BOOSTIFY', type: 'Website', img: '/assets/refrence2.webp', altStyle: true },
-  { id: 3, title: 'WAVEPROXIES', type: 'Website', img: '/assets/refrence3.webp', altStyle: false },
-  { id: 4, title: 'IPNVPN', type: 'Mobile App', img: '/assets/portfolio.webp', altStyle: true },
-  { id: 5, title: 'BATIVIA', type: 'Website', img: '/assets/refrence2.webp', altStyle: true },
-  { id: 6, title: 'BAEDECO', type: 'Website', img: '/assets/refrence3.webp', altStyle: false },
+  { id: 1, title: 'IPNPROXY', type: 'Website', img: '/assets/1.png', altStyle: false },
+  { id: 2, title: 'BOOSTIFY', type: 'Website', img: '/assets/2.png', altStyle: true },
+  { id: 3, title: 'WAVEPROXIES', type: 'Website', img: '/assets/3.png', altStyle: false },
+  { id: 4, title: 'IPNVPN', type: 'Mobile App', img: '/assets/4.jpeg', altStyle: true },
+  { id: 5, title: 'BATIVIA', type: 'Website', img: '/assets/5.jpeg', altStyle: true },
+  { id: 6, title: 'BAEDECO', type: 'Website', img: '/assets/6.png', altStyle: false },
 ];
 
 const Portfolio = () => {
