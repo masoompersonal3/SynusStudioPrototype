@@ -708,12 +708,12 @@
   display: flex;
   justify-content: center;
   overflow: hidden;
-  padding: 0 2vw;
+  padding: 0 4vw;
 }
 
 .footer-giant-name {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 23vw;
+  font-size: 20vw;
   text-align: center;
   margin: 0;
   line-height: 1;
