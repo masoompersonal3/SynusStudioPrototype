@@ -118,9 +118,9 @@ const Loader = ({ onComplete, onLogoFly }) => {
             <motion.svg 
               layoutId="synus-logo-icon" 
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: logoScale }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+              width={36 * logoScale} height={36 * logoScale} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
               style={{ position: 'relative', zIndex: 10 }}
             >
               <rect width="40" height="40" rx="12" fill="#ff3300" />
