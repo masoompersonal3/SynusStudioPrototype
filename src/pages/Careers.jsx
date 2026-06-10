@@ -37,10 +37,12 @@ const CareerCard = ({ pos, index }) => {
   return (
     <motion.div
       ref={cardRef}
-      className="relative rounded-[32px] overflow-hidden"
       style={{
+        position: 'relative',
+        borderRadius: '32px',
+        overflow: 'hidden',
         width: "100%",
-        minHeight: "380px",
+        minHeight: "400px",
         transformStyle: "preserve-3d",
         backgroundColor: "#080a10",
         boxShadow: "0 -10px 100px 10px rgba(212, 255, 58, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.8)",
@@ -67,8 +69,10 @@ const CareerCard = ({ pos, index }) => {
     >
       {/* Subtle glass reflection overlay */}
       <motion.div
-        className="absolute inset-0 pointer-events-none"
         style={{
+          position: 'absolute',
+          top: 0, right: 0, bottom: 0, left: 0,
+          pointerEvents: 'none',
           background: "linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 80%, rgba(255,255,255,0.05) 100%)",
           backdropFilter: "blur(2px)",
           zIndex: 35
@@ -84,15 +88,15 @@ const CareerCard = ({ pos, index }) => {
 
       {/* Dark background with black gradient */}
       <motion.div
-        className="absolute inset-0"
-        style={{ background: "linear-gradient(180deg, #000000 0%, #000000 70%)", zIndex: 0 }}
+        style={{ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, background: "linear-gradient(180deg, #000000 0%, #000000 70%)", zIndex: 0 }}
         animate={{ z: -1 }}
       />
 
       {/* Noise texture overlay */}
       <motion.div
-        className="absolute inset-0 opacity-20 mix-blend-overlay"
         style={{
+          position: 'absolute', top: 0, right: 0, bottom: 0, left: 0,
+          opacity: 0.2, mixBlendMode: 'overlay',
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
           zIndex: 10
         }}
@@ -101,8 +105,8 @@ const CareerCard = ({ pos, index }) => {
 
       {/* Neon green glow effect matching the website theme */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0 h-2/3"
         style={{
+          position: 'absolute', bottom: 0, left: 0, right: 0, height: '66.66%',
           background: `
             radial-gradient(ellipse at bottom right, rgba(212, 255, 58, 0.7) -10%, rgba(0, 0, 0, 0) 70%),
             radial-gradient(ellipse at bottom left, rgba(160, 200, 30, 0.6) -10%, rgba(0, 0, 0, 0) 70%)
@@ -120,8 +124,8 @@ const CareerCard = ({ pos, index }) => {
 
       {/* Central green glow */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0 h-2/3"
         style={{
+          position: 'absolute', bottom: 0, left: 0, right: 0, height: '66.66%',
           background: `radial-gradient(circle at bottom center, rgba(212, 255, 58, 0.7) -20%, rgba(0, 0, 0, 0) 60%)`,
           filter: "blur(45px)",
           zIndex: 21
@@ -136,8 +140,11 @@ const CareerCard = ({ pos, index }) => {
 
       {/* Enhanced bottom border glow */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0 h-[2px]"
-        style={{ background: "linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(212,255,58,0.7) 50%, rgba(255,255,255,0.05) 100%)", zIndex: 25 }}
+        style={{ 
+          position: 'absolute', bottom: 0, left: 0, right: 0, height: '2px',
+          background: "linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(212,255,58,0.7) 50%, rgba(255,255,255,0.05) 100%)", 
+          zIndex: 25 
+        }}
         animate={{
           boxShadow: isHovered
             ? "0 0 20px 4px rgba(212, 255, 58, 0.9), 0 0 30px 6px rgba(180, 220, 40, 0.7), 0 0 40px 8px rgba(140, 180, 20, 0.5)"
@@ -150,19 +157,23 @@ const CareerCard = ({ pos, index }) => {
 
       {/* Card content exactly matching the screenshot structure */}
       <motion.div
-        className="relative flex flex-col h-full p-8"
-        style={{ zIndex: 40 }}
+        style={{ 
+          position: 'relative', display: 'flex', flexDirection: 'column', 
+          height: '100%', padding: '2rem', zIndex: 40 
+        }}
         animate={{ z: 2 }}
       >
         {/* Icon circle with shadow - dark like in the image */}
         <motion.div
-          className="w-12 h-12 rounded-full flex items-center justify-center mb-6"
           style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            borderRadius: '50%', marginBottom: '1.5rem',
             background: "linear-gradient(225deg, #171c2c 0%, #121624 100%)",
             position: "relative",
             overflow: "hidden",
             width: "48px",
-            height: "48px"
+            height: "48px",
+            flexShrink: 0
           }}
           initial={{ filter: "blur(3px)", opacity: 0.7 }}
           animate={{
@@ -180,26 +191,24 @@ const CareerCard = ({ pos, index }) => {
         >
           {/* Top-left highlight for realistic lighting */}
           <div
-            className="absolute top-0 left-0 w-2/3 h-2/3 opacity-40"
             style={{
-              background: "radial-gradient(circle at top left, rgba(255, 255, 255, 0.5), transparent 80%)",
-              pointerEvents: "none",
-              filter: "blur(10px)"
+              position: 'absolute', top: 0, left: 0, width: '66.66%', height: '66.66%',
+              opacity: 0.4, pointerEvents: 'none', filter: 'blur(10px)',
+              background: "radial-gradient(circle at top left, rgba(255, 255, 255, 0.5), transparent 80%)"
             }}
           />
 
           {/* Bottom shadow for depth */}
           <div
-            className="absolute bottom-0 left-0 w-full h-1/2 opacity-50"
             style={{
-              background: "linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent)",
-              pointerEvents: "none",
-              backdropFilter: "blur(3px)"
+              position: 'absolute', bottom: 0, left: 0, width: '100%', height: '50%',
+              opacity: 0.5, pointerEvents: 'none', backdropFilter: 'blur(3px)',
+              background: "linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent)"
             }}
           />
 
           {/* Star icon matching the image */}
-          <div className="flex items-center justify-center w-full h-full relative z-10">
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%', position: 'relative', zIndex: 10 }}>
             <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M8 0L9.4 5.4L14.8 5.4L10.6 8.8L12 14.2L8 10.8L4 14.2L5.4 8.8L1.2 5.4L6.6 5.4L8 0Z"
@@ -211,7 +220,7 @@ const CareerCard = ({ pos, index }) => {
 
         {/* Content positioning to match the image */}
         <motion.div
-          className="mb-auto flex flex-col items-start justify-start"
+          style={{ marginBottom: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start', flexGrow: 1 }}
           animate={{
             z: isHovered ? 5 : 2,
             rotateX: isHovered ? -rotation.x * 0.3 : 0,
@@ -224,6 +233,7 @@ const CareerCard = ({ pos, index }) => {
               color: '#fff',
               fontSize: '1.5rem',
               fontWeight: 500,
+              marginTop: '1rem',
               marginBottom: '0.75rem',
               letterSpacing: '-0.01em',
               lineHeight: 1.2,
