@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, MoveRight, Users, Zap, Globe } from 'lucide-react';
-import { FooterTop } from '../components/Footer';
+import { ArrowRight, MoveRight, Users, Zap, Globe, MoveLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const positions = [
   { id: 1, title: 'Senior Frontend Engineer', type: 'Full-time', location: 'Remote / Jakarta', dept: 'Engineering' },
@@ -12,6 +12,7 @@ const positions = [
 
 const Careers = () => {
   const heroRef = useRef(null);
+  const navigate = useNavigate();
   
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -27,8 +28,15 @@ const Careers = () => {
 
   return (
     <>
-      <div style={{ backgroundColor: '#050505', minHeight: '100vh', color: '#fff', paddingTop: '100px' }}>
+      <div style={{ backgroundColor: '#050505', minHeight: '100vh', color: '#fff', paddingTop: '100px', position: 'relative' }}>
         
+        <div 
+          onClick={() => navigate(-1)} 
+          style={{ color: '#888', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', position: 'absolute', top: '40px', left: '4vw', zIndex: 50, fontWeight: 600 }}
+        >
+          <MoveLeft size={20} /> Back
+        </div>
+
         {/* PARALLAX HERO SECTION */}
         <main ref={heroRef} style={{ height: '70vh', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
           <motion.div 
@@ -122,8 +130,6 @@ const Careers = () => {
             ))}
           </div>
         </section>
-
-        <FooterTop />
       </div>
     </>
   );

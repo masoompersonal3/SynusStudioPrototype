@@ -50,26 +50,28 @@ function App() {
         }}
       >
         <ScrollRestoration />
-        {!location.pathname.startsWith('/project') && <Navbar showNavLogo={showNavLogo} />}
+        {!location.pathname.startsWith('/project') && !location.pathname.startsWith('/careers') && <Navbar showNavLogo={showNavLogo} />}
 
         <AnimatePresence mode="wait">
           <Outlet key={location.pathname} />
         </AnimatePresence>
       </div>
 
-      <div 
-        ref={footerRef}
-        className="footer-reveal-container" 
-        style={{ 
-          position: 'fixed', 
-          bottom: 0, 
-          left: 0, 
-          width: '100%', 
-          zIndex: 1 
-        }}
-      >
-        <FooterBottom />
-      </div>
+      {!location.pathname.startsWith('/careers') && (
+        <div 
+          ref={footerRef}
+          className="footer-reveal-container" 
+          style={{ 
+            position: 'fixed', 
+            bottom: 0, 
+            left: 0, 
+            width: '100%', 
+            zIndex: 1 
+          }}
+        >
+          <FooterBottom />
+        </div>
+      )}
     </LayoutGroup>
   );
 }

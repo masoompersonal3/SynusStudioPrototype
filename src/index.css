@@ -14,13 +14,21 @@ html {
 }
 
 body {
+  margin: 0;
+  padding: 0;
   background-color: #050505;
-  color: #ffffff;
+  color: #fff;
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
   min-height: 100vh;
   position: relative;
-  width: 100%;
+  width: 100vw;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 
 .hero-light-wrapper {
@@ -68,9 +76,9 @@ body {
     max-width: 1100px;
     width: 90%;
     padding: 1rem 3rem;
-    background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(60px);
-    -webkit-backdrop-filter: blur(60px);
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-radius: 50px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.08);
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -438,9 +446,9 @@ body {
     max-width: 95%;
     padding: 0.8rem 1.2rem;
     border-radius: 30px;
-    background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(60px);
-    -webkit-backdrop-filter: blur(60px);
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     box-shadow: 0 10px 40px rgba(0,0,0,0.08);
     border: 1px solid rgba(255, 255, 255, 0.15);
   }
@@ -538,9 +546,9 @@ body {
   right: 1.5rem;
   width: 250px;
   height: auto;
-  background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(60px);
-  -webkit-backdrop-filter: blur(60px);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 15px 35px rgba(0,0,0,0.1);
   border-radius: 24px;
