@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const Loader = ({ onComplete }) => {
+const Loader = ({ onComplete, onLogoFly }) => {
   const [stage, setStage] = useState(0);
 
   useEffect(() => {
@@ -10,6 +10,7 @@ const Loader = ({ onComplete }) => {
     const timer3 = setTimeout(() => setStage(3), 3200); // show big logo
     const timer4 = setTimeout(() => {
       setStage(4); // diagonal cut begins
+      if(onLogoFly) onLogoFly();
       setTimeout(onComplete, 800); // wait for cut
     }, 5500);
 
@@ -26,6 +27,9 @@ const Loader = ({ onComplete }) => {
     "AGENCY FOR WEB APPS & PROJECTS",
     "SERVICES WE PROVIDE"
   ];
+
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const logoScale = isMobile ? 5 : 12;
 
   return (
     <div
@@ -113,11 +117,11 @@ const Loader = ({ onComplete }) => {
           {stage >= 3 && stage < 4 && (
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 12 }}
+              animate={{ opacity: 1, scale: logoScale }}
               exit={{ opacity: 1 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="logo"
-              style={{ display: 'flex', justifyContent: 'center' }}
+              style={{ display: 'flex', justifyContent: 'center', padding: '0 2rem' }}
             >
               <motion.svg layoutId="synus-logo-icon" width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="40" height="40" rx="12" fill="#ff3300" />

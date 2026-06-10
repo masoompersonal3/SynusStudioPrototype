@@ -1,6 +1,5 @@
 import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import { ArrowRight, Globe, Link2 } from 'lucide-react';
 
 const InstagramIcon = ({ size = 24 }) => (
@@ -121,17 +120,8 @@ export const FooterTop = () => {
 };
 
 export const FooterBottom = () => {
-  const containerRef = useRef(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end end"]
-  });
-
-  const bgPosY = useTransform(scrollYProgress, [0.3, 1], ["100%", "0%"]);
-
   return (
-    <div className="footer-section" ref={containerRef} style={{ paddingTop: '2rem' }}>
+    <div className="footer-section" style={{ paddingTop: '2rem' }}>
       <div className="footer-bottom" style={{ borderTop: 'none', paddingTop: 0 }}>
         <p>&copy; 2026 SYNUSSTUDIO. ALL RIGHT RESERVED</p>
         <div className="footer-legal">
@@ -141,20 +131,9 @@ export const FooterBottom = () => {
 
       {/* Giant Typography Name */}
       <div className="footer-giant-name-container">
-        <motion.h1 
-          className="footer-giant-name"
-          style={{
-            backgroundImage: "linear-gradient(to top, #ffffff 0%, #ffffff 50%, transparent 50%, transparent 100%)",
-            backgroundSize: "100% 200%",
-            WebkitBackgroundClip: "text",
-            backgroundPositionX: "0%",
-            backgroundPositionY: bgPosY,
-            color: "transparent",
-            WebkitTextStroke: "2px #ffffff"
-          }}
-        >
+        <h1 className="footer-giant-name">
           SYNUSSTUDIO
-        </motion.h1>
+        </h1>
       </div>
     </div>
   );

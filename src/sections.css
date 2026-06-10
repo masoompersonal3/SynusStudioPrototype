@@ -713,10 +713,8 @@
 
 .footer-giant-name {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 19vw;
+  font-size: 23vw;
   text-align: center;
-  color: transparent;
-  -webkit-text-stroke: 2px #ffffff;
   margin: 0;
   line-height: 1;
   letter-spacing: 0;
@@ -724,6 +722,20 @@
   z-index: 1;
   font-weight: 700;
   padding: 0;
+  
+  /* Fill from bottom on hover */
+  background-image: linear-gradient(to top, #ffffff 0%, #ffffff 50%, transparent 50%, transparent 100%);
+  background-size: 100% 200%;
+  background-position-y: 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 2px #ffffff;
+  transition: background-position-y 0.4s ease-out;
+}
+
+.footer-giant-name:hover {
+  background-position-y: 0%;
 }
 
 .social-links-row {

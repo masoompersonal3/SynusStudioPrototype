@@ -15,6 +15,9 @@ function App() {
   const [loading, setLoading] = useState(() => {
     return !sessionStorage.getItem('hasSeenLoader');
   });
+  const [showNavLogo, setShowNavLogo] = useState(() => {
+    return !!sessionStorage.getItem('hasSeenLoader');
+  });
   const [isScrolled, setIsScrolled] = useState(false);
   
   const handleLoaderComplete = () => {
@@ -69,7 +72,7 @@ function App() {
   return (
     <LayoutGroup>
       <AnimatePresence>
-        {loading && <Loader onComplete={handleLoaderComplete} />}
+        {loading && <Loader onComplete={handleLoaderComplete} onLogoFly={() => setShowNavLogo(true)} />}
       </AnimatePresence>
       
       {/* MAIN CONTENT WRAPPER */}
@@ -91,23 +94,27 @@ function App() {
               style={{ color: '#000', display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}
               whileHover="hover"
             >
-              <motion.svg layoutId="synus-logo-icon" width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <motion.rect 
-                  width="40" height="40" rx="12" fill="#ff3300" 
-                  variants={{
-                    hover: { rotate: 90, scale: 1.1, borderRadius: "50%" }
-                  }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                />
-                <motion.path 
-                  d="M19 13C16 13 14 14.5 14 17C14 20.5 20 19.5 20 23C20 25.5 18 27 15 27" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"
-                  variants={{ hover: { pathLength: 1, opacity: 1, strokeWidth: 4 } }}
-                />
-                <motion.path 
-                  d="M27 13C24 13 22 14.5 22 17C22 20.5 28 19.5 28 23C28 25.5 26 27 23 27" stroke="#000" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"
-                  variants={{ hover: { pathLength: 1, opacity: 1, strokeWidth: 4 } }}
-                />
-              </motion.svg>
+              {showNavLogo ? (
+                <motion.svg layoutId="synus-logo-icon" width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <motion.rect 
+                    width="40" height="40" rx="12" fill="#ff3300" 
+                    variants={{
+                      hover: { rotate: 90, scale: 1.1, borderRadius: "50%" }
+                    }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  />
+                  <motion.path 
+                    d="M19 13C16 13 14 14.5 14 17C14 20.5 20 19.5 20 23C20 25.5 18 27 15 27" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"
+                    variants={{ hover: { pathLength: 1, opacity: 1, strokeWidth: 4 } }}
+                  />
+                  <motion.path 
+                    d="M27 13C24 13 22 14.5 22 17C22 20.5 28 19.5 28 23C28 25.5 26 27 23 27" stroke="#000" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"
+                    variants={{ hover: { pathLength: 1, opacity: 1, strokeWidth: 4 } }}
+                  />
+                </motion.svg>
+              ) : (
+                <div style={{ width: 36, height: 36 }} />
+              )}
               <span className="logo-text" style={{ fontWeight: 600, fontSize: '1.2rem' }}>SynusStudio</span>
             </motion.div>
             
