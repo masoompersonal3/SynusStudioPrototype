@@ -88,13 +88,13 @@ const Portfolio = () => {
   const dynamicMarginBottom = useTransform(scrollYProgress, [0, 1], ["0vh", "-10vh"]);
 
   return (
-    <div style={{ background: 'linear-gradient(to bottom, #0b0f19 0%, #0b0f19 75%, #ffffff 75%, #ffffff 100%)' }}>
+    <div style={{ background: '#f5f5f5' }}>
       <motion.section 
         ref={contentRef}
         className="portfolio-section"
         style={{ 
           position: 'relative', 
-          backgroundColor: '#0b0f19', 
+          backgroundColor: '#f5f5f5', 
           marginBottom: dynamicMarginBottom,
           scale,
           borderBottomLeftRadius,
